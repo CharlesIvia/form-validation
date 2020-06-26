@@ -55,3 +55,18 @@ h2 {
   padding: 10px;
   font-size: 14px;
 }
+
+.form-control input:focus {
+  outline: 0;
+  border: #777;
+}
+
+.form-control.success input {
+  border-color: var(--success-color);
+}
+
+.form-control.error input {
+  border-color: var(--error-color);
+}
+
+
