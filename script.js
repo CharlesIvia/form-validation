@@ -44,3 +44,20 @@ function checkRequired(inputArr) {
   });
 }
 
+//Check input length
+
+function checkLength(input, min, max) {
+  if (input.value.length < min) {
+    showError(
+      input,
+      `${getFieldName(input)} must be at leat ${min} characters`
+    );
+  } else if (input.value.length > max) {
+    showError(
+      input,
+      `${getFieldName(input)} must be at leat ${max} characters`
+    );
+  } else {
+    showSuccess(input);
+  }
+}
