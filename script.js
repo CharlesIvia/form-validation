@@ -69,3 +69,15 @@ function checkPasswordMatch(input1, input2) {
     showError(input2, "Passwords do not match");
   }
 }
+
+//Event listeners
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  checkRequired([username, email, password, passwordTwo]);
+  checkLength(username, 3, 15);
+  checkLength(password, 6, 25);
+  checkEmail(email);
+  checkPasswordMatch(password, passwordTwo);
+});
