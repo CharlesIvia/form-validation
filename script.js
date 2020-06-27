@@ -21,7 +21,7 @@ function showSuccess(input) {
   formControl.className = "form-control success";
 }
 
-//Check if email id valid using regex
+//Check if email is valid using regex
 
 function checkEmail(input) {
   const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -31,3 +31,16 @@ function checkEmail(input) {
     showError(input, "Email is not valid");
   }
 }
+
+//Check required fields
+
+function checkRequired(inputArr) {
+  inputArr.forEach((input) => {
+    if (input.value.trim() === "") {
+      showError(input, `${getFieldName(input)} is required`);
+    } else {
+      showSuccess(input);
+    }
+  });
+}
+
