@@ -11,7 +11,7 @@ function showError(input, message) {
   const formControl = input.parentElement;
   formControl.className = "form-control error";
   const small = formControl.querySelector("small");
-  small.innerText = "message";
+  small.innerText = message;
 }
 
 //Show success outline
@@ -35,7 +35,7 @@ function checkEmail(input) {
 //Check required fields
 
 function checkRequired(inputArr) {
-  inputArr.forEach((input) => {
+  inputArr.forEach(function (input) {
     if (input.value.trim() === "") {
       showError(input, `${getFieldName(input)} is required`);
     } else {
@@ -70,9 +70,15 @@ function checkPasswordMatch(input1, input2) {
   }
 }
 
+//Get fieldname
+
+function getFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
 //Event listeners
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   checkRequired([username, email, password, passwordTwo]);
